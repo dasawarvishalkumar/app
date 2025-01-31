@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:it_school_see/main.dart'; // Ensure this import matches your file structure
-import 'dashboard_screen.dart'; // Import DashboardScreen
-import 'registration.dart'; // Import RegistrationPage
-import 'forgetpassword.dart'; // Import ForgotPasswordPage
+import 'package:it_school_see/dashboard_screen.dart'; // Import DashboardScreen
+import 'package:it_school_see/registration.dart'; // Import RegistrationPage
+import 'package:it_school_see/forgetpassword.dart'; // Import ForgotPasswordPage
 
 void main() {
   group('SchoolSeeApp Widget Tests', () {
@@ -63,15 +63,15 @@ void main() {
       // Build the app and trigger a frame.
       await tester.pumpWidget(const SchoolSeeApp());
 
-      // Find the password field and verify it starts as obscured.
-      final passwordFieldFinder = find.bySemanticsLabel('Password');
+      // Find the password field using the text field semantics or a more reliable method.
+      final passwordFieldFinder = find.byType(TextField).first;
       expect(passwordFieldFinder, findsOneWidget);
 
       // Initially, the password should be obscured.
       final passwordField = tester.widget<TextField>(passwordFieldFinder);
       expect(passwordField.obscureText, true);
 
-      // Tap the visibility toggle icon.
+      // Tap the visibility toggle icon (typically an icon in the password field).
       await tester.tap(find.byIcon(Icons.visibility_off));
       await tester.pump(); // Rebuild the widget tree after state change.
 

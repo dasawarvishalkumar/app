@@ -1,48 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'attendence_page.dart';
-import 'digitalclasses.dart';
-import 'studentdetails_page.dart';
 
-class DashboardScreen extends StatefulWidget {
-  const DashboardScreen({super.key});
-
-  @override
-  _DashboardScreenState createState() => _DashboardScreenState();
+void main() {
+  runApp(const MyApp());
 }
-class PlaceholderScreen extends StatelessWidget {
-  final String title;
 
-  const PlaceholderScreen({super.key, required this.title});
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text(title)),
-      body: Center(child: Text(title, style: TextStyle(fontSize: 24))),
+    return MaterialApp(
+      title: 'Dashboard Screen',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: const DashboardScreen(),
     );
   }
 }
 
-
-class _DashboardScreenState extends State<DashboardScreen> {
-  int _selectedIndex = 2;
-
-  final List<Widget> screens = [
-    const PlaceholderScreen(title: 'Assignments'),
-    const PlaceholderScreen(title: 'Notifications'),
-    const DashboardScreen(),
-    const PlaceholderScreen(title: 'Directions'),
-    const StudentProfilePage(),
-  ];
+class DashboardScreen extends StatelessWidget {
+  const DashboardScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    // Image constants
     const String schoolImage = 'assets/images/school.png';
     const String school1Image = 'assets/images/school1.png';
     const String sportsImage = 'assets/images/sports.png';
 
+    // Carousel image list
     final List<String> carouselImages = [schoolImage, school1Image, sportsImage];
 
     return Scaffold(
@@ -53,6 +41,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              // User Info and Avatar
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -81,6 +70,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 ],
               ),
               const SizedBox(height: 20),
+              // Carousel Slider
               CarouselSlider(
                 options: CarouselOptions(
                   height: 150.0,
@@ -110,6 +100,7 @@ class _DashboardScreenState extends State<DashboardScreen> {
                 }).toList(),
               ),
               const SizedBox(height: 20),
+              // Dashboard Items
               Expanded(
                 child: GridView.count(
                   crossAxisCount: 3,
@@ -117,13 +108,104 @@ class _DashboardScreenState extends State<DashboardScreen> {
                   mainAxisSpacing: 16,
                   childAspectRatio: 0.8,
                   children: [
-                    _DashboardCard(title: 'Student Attendance', icon: Icons.person_rounded, onTap: () => _navigateTo(context, const AttendanceDashboard())),
-                    _DashboardCard(title: 'Digital Classes', icon: Icons.cast_for_education, onTap: () => _navigateTo(context, const EducationPage())),
-                    _DashboardCard(title: 'Fee Status', icon: Icons.payment, onTap: () => _navigateTo(context, const PlaceholderScreen(title: 'Fee Status'))),
-                    _DashboardCard(title: 'Bus Tracking', icon: Icons.directions_bus, onTap: () => _navigateTo(context, const PlaceholderScreen(title: 'Bus Tracking'))),
-                    _DashboardCard(title: 'School Calendar', icon: Icons.calendar_month, onTap: () => _navigateTo(context, const PlaceholderScreen(title: 'School Calendar'))),
-                    _DashboardCard(title: 'Assignments', icon: Icons.assignment, onTap: () => _navigateTo(context, const PlaceholderScreen(title: 'Assignments'))),
-                    _DashboardCard(title: 'Results', icon: Icons.bar_chart, onTap: () => _navigateTo(context, const PlaceholderScreen(title: 'Results'))),
+                    _DashboardCard(
+                      title: 'Student Attendance',
+                      icon: Icons.person_rounded,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Student Attendance',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'Digital Classes',
+                      icon: Icons.cast_for_education,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Digital Classes',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'Fee Status',
+                      icon: Icons.payment,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Fee Status',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'Bus Tracking',
+                      icon: Icons.directions_bus,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Bus Tracking',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'School Calendar',
+                      icon: Icons.calendar_month,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'School Calendar',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'Assignments',
+                      icon: Icons.assignment,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Assignments',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+                    _DashboardCard(
+                      title: 'Results',
+                      icon: Icons.bar_chart,
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const PlaceholderScreen(
+                              title: 'Results',
+                            ),
+                          ),
+                        );
+                      },
+                    ),
                   ],
                 ),
               ),
@@ -131,29 +213,8 @@ class _DashboardScreenState extends State<DashboardScreen> {
           ),
         ),
       ),
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.transparent,
-        color: Colors.blueGrey,
-        items: const [
-          Icon(Icons.assignment, size: 30, color: Colors.white),
-          Icon(Icons.notifications, size: 30, color: Colors.white),
-          Icon(Icons.home, size: 30, color: Colors.white),
-          Icon(Icons.directions_bus, size: 30, color: Colors.white),
-          Icon(Icons.person, size: 30, color: Colors.white),
-        ],
-        index: _selectedIndex,
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-      ),
     );
   }
-}
-
-void _navigateTo(BuildContext context, Widget page) {
-  Navigator.push(context, MaterialPageRoute(builder: (context) => page));
 }
 
 class _DashboardCard extends StatelessWidget {
@@ -161,7 +222,11 @@ class _DashboardCard extends StatelessWidget {
   final IconData icon;
   final VoidCallback onTap;
 
-  const _DashboardCard({required this.title, required this.icon, required this.onTap});
+  const _DashboardCard({
+    required this.title,
+    required this.icon,
+    required this.onTap,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -173,9 +238,9 @@ class _DashboardCard extends StatelessWidget {
           borderRadius: BorderRadius.circular(12),
           boxShadow: [
             BoxShadow(
-              color: const Color(0xFFD1D9E6).withOpacity(1.0),
-              blurRadius: 30,
-              offset: const Offset(18, 18),
+              color: Colors.grey.shade300,
+              blurRadius: 10,
+              offset: const Offset(4, 4),
             ),
           ],
         ),
@@ -187,11 +252,29 @@ class _DashboardCard extends StatelessWidget {
             Text(
               title,
               textAlign: TextAlign.center,
-              style: const TextStyle(fontSize: 14, color: Colors.black87, fontWeight: FontWeight.bold),
+              style: const TextStyle(
+                fontSize: 14,
+                color: Colors.black87,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ],
         ),
       ),
+    );
+  }
+}
+
+class PlaceholderScreen extends StatelessWidget {
+  final String title;
+
+  const PlaceholderScreen({required this.title, super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(title: Text(title)),
+      body: Center(child: Text('$title Screen')),
     );
   }
 }
