@@ -1,0 +1,63 @@
+name: it_school_see
+description: "A new Flutter project."
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.6.1 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8 # youtube_player_flutter: ^9.1.1
+  google_fonts: ^6.1.0  # Optional for better typography
+  smooth_page_indicator: ^1.1.0  # Smooth scrolling effects
+  url_launcher: ^6.2.5
+  curved_navigation_bar: ^1.0.6
+  carousel_slider: ^5.0.0 # Opens external URLs if needed
+  percent_indicator: ^4.2.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/school_see_logo.png
+    - assets/images/algebra.png
+    - assets/images/calculas.jpg
+    - assets/images/combinatorics.png
+    - assets/images/complex_numbers.png
+    - assets/images/differential.png
+    - assets/images/discrete.png
+    - assets/images/english2.png
+    - assets/images/geometrics.png
+    - assets/images/graphs.png
+    - assets/images/integration.webp
+    - assets/images/linear_algebra.png
+    - assets/images/logic.png
+    - assets/images/maths.png
+    - assets/images/matrix.png
+    - assets/images/number_theory.png
+    - assets/images/placeholder.png
+    - assets/images/school.png
+    - assets/images/school1.png
+    - assets/images/science.png
+    - assets/images/secure.png
+    - assets/images/set_theory.png
+    - assets/images/social.png
+    - assets/images/sports.png
+    - assets/images/statistics.png
+    - assets/images/trigonometry.png
+    - assets/images/vector.jpg
+
+
+
+
+
+
